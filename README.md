@@ -1,16 +1,29 @@
 # train_seat
 
-A new Flutter project.
+Indian train seat finder in flutter
 
-## Getting Started
+![preview](preview.gif)
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### lib directory
+```
+│   main.dart
+│
+├───bloc
+│       seat_finder_bloc.dart    
+│       seat_finder_event.dart   
+│       seat_finder_state.dart   
+│
+├───constants
+│       colors.dart
+│       seat_type.dart
+│       sizes.dart
+│
+└───pages
+    └───seat_finder
+        │   seat_finder_page.dart
+        │   
+        └───components
+                seat_handle_widget.dart
+                seat_row_widget.dart
+                single_seat_box_widget.dart
+```

@@ -8,18 +8,28 @@ class SingleSeatBox extends StatelessWidget {
   final int seatNo;
   final String seatType;
   final bool typeTextOnTop;
+  final int rowNo;
   const SingleSeatBox(
       {super.key,
       required this.seatNo,
       required this.seatType,
-      required this.typeTextOnTop});
+      required this.typeTextOnTop,
+      required this.rowNo});
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<SeatFinderBloc, SeatFinderState>(
         builder: (context, state) {
-      final bool highlighted =
-          state is SeatFinderSeatSelected && seatNo == state.seatNo;
+      bool highlighted =
+          (state is SeatFinderSeatSelected && seatNo == state.seatNo) ||
+              (state is SeatFinderRowSelected && seatNo == state.seatNo);
+      if (state is SeatFinderSeatSelected && seatNo == state.seatNo) {
+        Future.delayed(const Duration(microseconds: 500), () {
+          context
+              .read<SeatFinderBloc>()
+              .add(SeatScrollToRowEvent(rowNo: rowNo, seatNo: state.seatNo));
+        });
+      }
 
       return Container(
         width: seatWidth,

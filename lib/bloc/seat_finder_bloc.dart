@@ -6,8 +6,15 @@ part 'seat_finder_state.dart';
 class SeatFinderBloc extends Bloc<SeatFinderEvent, SeatFinderState> {
   SeatFinderBloc() : super(SeatFinderInitial()) {
     on<SeatFinderSeatFindEvent>((event, emit) {
-      print("seat finder find event ${event.seatNo}");
-      emit(SeatFinderSeatSelected(event.seatNo));
+      emit(SeatFinderSeatSelected(
+        seatNo: event.seatNo,
+      ));
+    });
+    on<SeatScrollToRowEvent>((event, emit) {
+      emit(SeatFinderRowSelected(
+        rowNo: event.rowNo,
+        seatNo: event.seatNo,
+      ));
     });
   }
 }

@@ -49,18 +49,21 @@ class SeatRow extends StatelessWidget {
                   SingleSeatBox(
                       seatNo: leftStart,
                       seatType: SeatType.lower.displayName,
-                      typeTextOnTop: sideSeatType == SeatType.sideUpper),
+                      typeTextOnTop: sideSeatType == SeatType.sideUpper,
+                      rowNo: index),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 2),
                     child: SingleSeatBox(
                         seatNo: leftStart + 1,
                         seatType: SeatType.middle.displayName,
-                        typeTextOnTop: sideSeatType == SeatType.sideUpper),
+                        typeTextOnTop: sideSeatType == SeatType.sideUpper,
+                        rowNo: index),
                   ),
                   SingleSeatBox(
                       seatNo: leftStart + 2,
                       seatType: SeatType.upper.displayName,
-                      typeTextOnTop: sideSeatType == SeatType.sideUpper),
+                      typeTextOnTop: sideSeatType == SeatType.sideUpper,
+                      rowNo: index),
                 ],
               ),
               if (sideSeatType == SeatType.sideUpper)
@@ -85,7 +88,8 @@ class SeatRow extends StatelessWidget {
               SingleSeatBox(
                   seatNo: rightStart,
                   seatType: sideSeatType.displayName,
-                  typeTextOnTop: sideSeatType == SeatType.sideUpper),
+                  typeTextOnTop: sideSeatType == SeatType.sideUpper,
+                  rowNo: index),
               if (sideSeatType == SeatType.sideUpper)
                 Container(
                   color: seatBorderColor,

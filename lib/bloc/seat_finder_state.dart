@@ -14,10 +14,20 @@ class SeatFinderLoading extends SeatFinderState {}
 class SeatFinderSeatSelected extends SeatFinderState {
   final int seatNo;
 
-  const SeatFinderSeatSelected(this.seatNo);
+  const SeatFinderSeatSelected({required this.seatNo});
 
   @override
   List<Object> get props => [seatNo];
+}
+
+class SeatFinderRowSelected extends SeatFinderState {
+  final int seatNo;
+  final int rowNo;
+
+  const SeatFinderRowSelected({required this.seatNo, required this.rowNo});
+
+  @override
+  List<Object> get props => [seatNo, rowNo];
 }
 
 class SeatFinderError extends SeatFinderState {
